@@ -1,4 +1,3 @@
-
 // Selecting HTML elements
 const form = document.querySelector(".top-banner form");
 const input = document.querySelector(".top-banner input");
@@ -9,7 +8,7 @@ const list = document.querySelector(".ajax-section .cities");
 const apiKey = 'f84009647ce2a9db9dcff46b58632a4b';
 
 //Using fetch POST method
-const data = {
+const data1 = {
   abc: 'Hello',
   xyz: 'Bye'
 };
@@ -18,7 +17,7 @@ const options = {
   headers: {
     'Content-Type': 'application/json'
   },
-  body: JSON.stringify(data)
+  body: JSON.stringify(data1)
 };
 fetch('/api', options);
 
