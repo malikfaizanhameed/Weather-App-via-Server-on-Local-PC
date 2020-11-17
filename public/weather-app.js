@@ -34,8 +34,8 @@ form.addEventListener("submit", async e => {
     },
     body: JSON.stringify(city)
   };
-  
-// debugger;
+
+  // debugger;
   //try to ask openweather for data
   try {
     const resp = await fetch('/api', options);
@@ -52,7 +52,7 @@ form.addEventListener("submit", async e => {
     createList(data);
     //reset with success
     reset(' ');
-  } catch(e) {
+  } catch (e) {
     console.log(e);
     //reset with error message
     reset('Please enter a valid city name!');
