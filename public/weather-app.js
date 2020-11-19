@@ -39,7 +39,13 @@ form.addEventListener("submit", async e => {
   //try to ask openweather for data
   try {
     const resp = await fetch('/api', options);
+    // debugge  r;
+    // if (resp === 'error'){
+    // reset('yaaay');
+
     const data = await resp.json();
+    console.log(data);
+
     //select city entered
     // const inputVal = input.value;
     //API call
@@ -49,13 +55,18 @@ form.addEventListener("submit", async e => {
     // const resp = await fetch(url);
     // const data = await resp.json();
     //create list element with response data
-    createList(data);
-    //reset with success
-    reset(' ');
+    if (data.status !== false) {
+      createList(data);
+      //reset with success
+      reset(' ');
+    } else {
+      reset('Please enter a valid city name!');
+    }
+
   } catch (e) {
     console.log(e);
     //reset with error message
-    reset('Please enter a valid city name!');
+    
   };
 });
 
