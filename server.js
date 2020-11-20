@@ -17,22 +17,16 @@ app.post('/api', async (req, res) => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${req.body.name}&units=metric&appid=${apiKey}`;
 
     try {
-        //wait for response and convert into JSON format
+        //wait for response from API and convert into JSON format
         const resp = await axios.get(url);
-        // const data = await resp.json();
         res.json(resp.data);
     } catch (e) {
         // console.log(e);
         // console.log(e.response.statusText);
-        // console.log(e.response.status);
-
+        console.log(e.response.status);
+        //sending response back to frontend with an error
         res.status(e.response.status).json({ message: e.response.statusText, status: false });
-
     }
-
-
-    // console.log(resp.data);
-
 });
 app.get('/', (req, res) => {
     res.sendFile('index.html');
